@@ -1,0 +1,294 @@
+HTML
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeowFeeder - Comedero Automático Inteligente para Gatos</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --primary-dark: #e85555;
+            --dark: #2d3748;
+            --light: #f7fafc;
+            --gray: #718096;
+            --accent: #4fd1c5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 14px rgba(255, 107, 107, 0.4);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 5%;
+            background: white;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--light);
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing/Offer Section */
+        .pricing {
+            padding: 5rem 5%;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            text-align: center;
+        }
+
+        .price-box {
+            background: white;
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 2px solid var(--primary);
+        }
+
+        .price-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: normal;
+        }
+
+        .price-box ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .price-box ul li {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .price-box ul li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">🐱 MeowFeeder</div>
+        <a href="#comprar" class="nav-btn">Comprar Ahora</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Alimenta a tu gato a tiempo, <span>estés donde estés</span>.</h1>
+            <p>Controla las porciones, programa horarios desde tu celular y asegúrate de que tu michi coma fresco y saludable todos los días.</p>
+            <a href="#comprar" class="cta-btn">¡Quiero el mío! ($59.99)</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?auto=format&fit=crop&w=600&q=80" alt="Gato feliz junto al comedero">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>¿Por qué elegir MeowFeeder?</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>📱 Control por App</h3>
+                <p>Programa hasta 6 comidas diarias y ajusta el tamaño exacto de cada porción directamente desde tu smartphone.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Frescura Garantizada</h3>
+                <p>Diseño con sellado hermético y desecante integrado para que el alimento mantenga su aroma y crujibilidad.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔋 Doble Energía</h3>
+                <p>Funciona enchufado a la pared, pero cuenta con batería de respaldo para que un corte de luz no lo deje sin comer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="comprar">
+        <div class="price-box">
+            <h3>MeowFeeder Smart</h3>
+            <div class="price">$59.99 <span>USD</span></div>
+            <ul>
+                <li>Capacidad de 4 Litros de comida seca</li>
+                <li>Conexión Wi-Fi 2.4GHz</li>
+                <li>Grabador de voz (llama a tu gato a comer)</li>
+                <li>Envío gratis a todo el país</li>
+                <li>Garantía de 1 año</li>
+            </ul>
+            <a href="#" class="cta-btn" onclick="alert('¡Gracias por tu interés! Próximamente se abrirá la pasarela de pago.'); return false;">Comprar con Envío Gratis</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MeowFeeder. Todos los derechos reservados. Hecho con 🐾 para los amantes de los gatos.</p>
